@@ -3,15 +3,18 @@
  * Author:Tiuon.com
  * ====================== */
 namespace library;
-use library\template\connector\template;
-use library\template\connector\smarty;
 class View{
 	protected $view;
 	// 构造函数
     public function __construct(){
     	$type = strtolower(C('TMP_TYPE'));
 		$class = "library\\template\\connector\\{$type}";
-        $this->view = new $class;
+		if(class_exists($class)){
+			$this->view = new $class;
+		}else{
+            // 模板类没有定义
+            Error('模板类没有定义: ' . $class);
+       } 
     }
 	// 分配模板变量
 	public function assign($name, $value=''){

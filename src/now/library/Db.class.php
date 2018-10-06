@@ -6,12 +6,18 @@ namespace library;
 use library\db\connector\mysql;
 use library\db\connector\sqlite;
 use library\db\connector\pdo;
-class Db
-{
+class Db{
+	protected $DB;
 	// 构造函数
     public function __construct($table){
-        $class = strtolower(C('DB_TYPE'));
-        $this->DB = new $class($table);
+    	$type = strtolower(C('DB_TYPE'));
+		$class = "library\\db\\connector\\{$type}";
+		if(class_exists($class)){
+			$this->DB = new $class($table);
+		}else{
+            // 数据库类没有定义
+            Error('数据库类没有定义: ' . $class);
+       } 
     }
     
     // 查询所有数据

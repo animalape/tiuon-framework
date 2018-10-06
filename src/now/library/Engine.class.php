@@ -29,7 +29,7 @@ class Engine {
         $class	= MODULE_NAME.'\\'.C('DEFAULT_C_LAYER').'\\'.CONTROLLER_NAME.'Controller';
         $action	= ACTION_NAME;
         if(class_exists($class)){
-        	$obj = new $class();
+        	$obj = new $class;
         	$obj->$action();
         }else{
             // 类没有定义
