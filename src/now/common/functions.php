@@ -14,7 +14,7 @@
 	    } else if(is_null($array)) {
 		    var_dump(NULL);
 	    } else {
-		    echo "<pre style='position:relative;z-index:1000;padding:10px;border-radius:5px;background:#F5F5F5;border:1px solid #aaa;font-size:14px;line-height:18px;opacity:0.9;'>". print_r($var, true) ."</pre><br>";
+		    echo "<pre style='position:relative;z-index:1000;padding:10px;border-radius:5px;background:#F5F5F5;border:1px solid #aaa;font-size:14px;line-height:18px;opacity:0.9;'>". print_r($array, true) ."</pre><br>";
 	    }
 	}
 	
@@ -24,19 +24,15 @@
 	 * @param String $key 要取的值
 	 * @return mixed
 	 */
-	function C($name, $key = null){
-		
+	function C($name,$key=null){
 		// 核心配置文件
 		$s_path = str_replace(array('\\','/'), DS, NOW_PATH . 'config/convention' . CONF_EXT);
-		
 		// 应用公共配置文件
 		$c_path = str_replace(array('\\','/'), DS, APP_CONF_PATH . 'config' . CONF_EXT);
-		
 		// 模块应用配置文件
 		if('MODULE_NAME' !== MODULE_NAME){
 			$a_path = str_replace(array('\\','/'), DS, APP_PATH . strtolower(MODULE_NAME) . '/common/config/config' . CONF_EXT);
 		}
-		
 		// 尝试获取配置数组
 		$conf = array();
 		if(is_file($s_path)){
@@ -48,7 +44,6 @@
 		if(is_file($a_path)){
 			$a_conf = include($a_path);
 		}
-		
 		// 判断应用公共配置文件是否存在
 	    if(is_array($c_conf)){
 	    	// 项目配置覆盖系统默认配置（分组配置是在解析分组后执行覆盖）

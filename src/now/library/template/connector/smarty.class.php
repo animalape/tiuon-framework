@@ -3,15 +3,15 @@
  * Author:Tiuon.com
  * ======================== */
 namespace library\template\connector;
+// 引入Smarty模板类
+vendor('Smarty.Smarty','','.class.php');
 class smarty{
 	protected $view;
 	
 	// 构造函数
 	public function __construct(){
-		// 引入Smarty模板类
-		vendor('Smarty.Smarty','','.class.php');
 		// 实例化Smarty类对象
-		$this->view = new \Smarty;
+		$this->view = new \Smarty();
 		// 调试模式
 		$this->view->debugging	= C('TMP_DEBUG');
 		// 设置模板目录
