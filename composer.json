@@ -1,0 +1,17 @@
+{
+    "name":"animalape/tiuon-framework",
+    "description":"tiuon framework",
+    "keywords":["tiuon","framework"],
+    "type": "tiuon-framework",
+    "license":"Apache-2.0",
+    "authors":[
+        {
+            "name":"animalape",
+			"email":"app@animalape.com",
+            "homepage":"http://github.com/animalape/tiuon-framework"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
