@@ -1,4 +1,4 @@
-﻿<p align="center"><img src="https://www.tiuon.com/assets/img/favicons/favicon-96x96.png"></p>
+﻿<p align="center"><img src="https://www.tiuon.com/assets/img/favicons/favicon-96x96.png"/></p>
 <p align="center">Tiuon框架1.0</p>
 
 ## 简介
